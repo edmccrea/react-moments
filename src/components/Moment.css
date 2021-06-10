@@ -1,0 +1,36 @@
+.moment {
+  width: 32%;
+  border: 1px solid var(--clr-secondary);
+  border-radius: 0.3rem;
+  min-height: 200px;
+  margin-bottom: 1rem;
+  transition: all ease-in-out 300ms;
+}
+
+.moment:hover {
+  background-color: var(--clr-primary-light);
+}
+
+.moment-content {
+  padding: 1rem;
+}
+
+.moment-content img {
+  max-width: 80%;
+  border: 1px solid var(--clr-secondary);
+}
+
+.moment-content h2,
+.moment-content p {
+  padding-bottom: 0.6rem;
+}
+
+.moment-content button {
+  margin-right: 1rem;
+}
+
+@media (max-width: 800px) {
+  .moment {
+    width: 80%;
+  }
+}

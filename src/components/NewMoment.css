@@ -1,0 +1,47 @@
+.new-moment-body {
+  position: absolute;
+  background-color: #0000009e;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-moment-container {
+  width: 70vw;
+  height: 60vh;
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-secondary);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-form {
+  position: absolute;
+  top: 25vh;
+  right: 20vw;
+  color: var(--clr-secondary);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all ease-in-out 200ms;
+}
+
+.close-form:hover {
+  cursor: pointer;
+}
+
+.new-moment-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.add-btn {
+  width: 50%;
+}

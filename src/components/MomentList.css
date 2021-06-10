@@ -1,0 +1,13 @@
+.moment-list {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .moment-list {
+    justify-content: center;
+  }
+}

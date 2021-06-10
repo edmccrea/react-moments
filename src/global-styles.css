@@ -1,0 +1,70 @@
+:root {
+  --clr-primary: #20232c;
+  --clr-primary-light: #2b2e39;
+  --clr-primary-dark: hsl(205, 86%, 17%);
+  --clr-secondary: #caad83;
+  --clr-secondary-light: #dac5a9;
+  --clr-secondary-dark: hsl(205, 86%, 17%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Libre Baskerville';
+  color: var(--clr-secondary);
+}
+
+p,
+input,
+button {
+  font-family: 'Raleway';
+  color: #fff;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid var(--clr-secondary);
+  color: var(--clr-secondary);
+  border-radius: 0.2rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+}
+
+.btn:hover {
+  border-color: var(--clr-secondary-light);
+  color: var(--clr-secondary-light);
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid var(--clr-secondary);
+  color: var(--clr-secondary);
+  background-color: var(--clr-primary);
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form input[type='text']:focus,
+.form input[type='email']:focus,
+.form input[type='password']:focus,
+.form input[type='date']:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+}
