@@ -9,6 +9,8 @@ const MomentList = ({
   formDisplay,
   setFormDisplay,
   displayForm,
+  formType,
+  setFormType,
 }) => {
   return (
     <section className='moment-list'>
@@ -22,6 +24,8 @@ const MomentList = ({
             formDisplay={formDisplay}
             setFormDisplay={setFormDisplay}
             displayForm={displayForm}
+            formType={formType}
+            setFormType={setFormType}
           />
         );
       })}

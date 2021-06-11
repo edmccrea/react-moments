@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import EditForm from './EditForm';
 import './Moment.css';
 
-const Moment = ({
-  moment,
-  moments,
-  setMoments,
-  // formDisplay,
-  // setFormDisplay,
-}) => {
-  // const [editFormDisplay, setEditFormDisplay] = useState(false);
-
-  // const displayEditForm = () => {
-  //   if (!editFormDisplay) {
-  //     setEditFormDisplay(true);
-  //   } else {
-  //     setEditFormDisplay(false);
-  //   }
-  // };
-
+const Moment = ({ moment, moments, setMoments }) => {
   const removeMoment = () => {
     setMoments(moments.filter((el) => el.id !== moment.id));
+  };
+
+  const [capturedMoment, setCapturedMoment] = useState('');
+
+  const [editFormDisplay, setEditFormDisplay] = useState(false);
+
+  const displayEditForm = () => {
+    if (!editFormDisplay) {
+      setCapturedMoment(moment);
+      setEditFormDisplay(true);
+      console.log(moment);
+    } else {
+      setEditFormDisplay(false);
+    }
   };
   return (
     <div className='moment'>
@@ -29,21 +28,23 @@ const Moment = ({
         </a>
         <h2>{moment.title}</h2>
         <p>{moment.description}</p>
-        <button className='btn'>Edit</button>
+        <button className='btn' onClick={displayEditForm}>
+          Edit
+        </button>
         <button className='btn' onClick={removeMoment}>
           Remove
         </button>
       </div>
 
-      {/* {formDisplay && (
-        <EditMoment
-          formDisplay={formDisplay}
-          setFormDisplay={setFormDisplay}
+      {editFormDisplay && (
+        <EditForm
           setMoments={setMoments}
           moments={moments}
-          moment={moment}
+          capturedMoment={capturedMoment}
+          editFormDisplay={editFormDisplay}
+          setEditFormDisplay={setEditFormDisplay}
         />
-      )} */}
+      )}
     </div>
   );
 };

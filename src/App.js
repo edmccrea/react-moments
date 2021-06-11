@@ -12,12 +12,16 @@ function App() {
   const displayForm = () => {
     if (!formDisplay) {
       setFormDisplay(true);
+      setFormType(true);
     } else {
       setFormDisplay(false);
+      setFormType(false);
     }
   };
 
   const [moments, setMoments] = useState(defaultMoments);
+
+  const [formType, setFormType] = useState('');
 
   return (
     <div className='container'>
@@ -27,6 +31,7 @@ function App() {
           setFormDisplay={setFormDisplay}
           setMoments={setMoments}
           moments={moments}
+          formType={formType}
         />
       )}
       <h1>MOMENTS</h1>
@@ -53,7 +58,8 @@ function App() {
         setMoments={setMoments}
         formDisplay={formDisplay}
         setFormDisplay={setFormDisplay}
-        displayForm={displayForm}
+        formType={formType}
+        setFormType={setFormType}
       />
     </div>
   );

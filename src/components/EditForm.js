@@ -1,28 +1,26 @@
 import React, { useState, Fragment } from 'react';
 import './NewMoment.css';
 
-const NewMoment = ({
-  formDisplay,
-  setFormDisplay,
+const EditForm = ({
+  editFormDisplay,
+  setEditFormDisplay,
   moments,
   setMoments,
-  formType,
   capturedMoment,
 }) => {
   const hideFormHandler = () => {
-    if (formDisplay) {
-      setFormDisplay(false);
+    if (editFormDisplay) {
+      setEditFormDisplay(false);
     } else {
-      setFormDisplay(true);
+      setEditFormDisplay(true);
     }
   };
 
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    img: '',
-    id: '',
-    link: '',
+    title: capturedMoment.title,
+    description: capturedMoment.description,
+    img: capturedMoment.img,
+    link: capturedMoment.link,
   });
 
   const { title, description, img, link } = formData;
@@ -34,25 +32,28 @@ const NewMoment = ({
     });
   };
 
-  const addMoment = (e) => {
+  const editMoment = (e) => {
     e.preventDefault();
     if (title !== '' && description !== '') {
-      let id = Math.random();
-      setMoments([...moments, { id, title, description, img, link }]);
-      setFormDisplay(false);
+      for (let moment of moments) {
+        if (capturedMoment.id === moment.id) {
+          setMoments([...moments, ({ capturedMoment } = moment)]);
+          setEditFormDisplay(false);
+        }
+      }
     }
   };
 
   return (
     <Fragment>
-      {formDisplay && (
+      {editFormDisplay && (
         <section className='new-moment-body'>
           <div className='new-moment-container'>
             <p className='close-form' onClick={hideFormHandler}>
               X
             </p>
-            <h1>{formType ? <span>Add a</span> : <span>Edit</span>} Moment</h1>
-            <form onSubmit={addMoment} className='new-moment-form form'>
+            <h1>EditMoment</h1>
+            <form onSubmit={editMoment} className='new-moment-form form'>
               <input
                 type='text'
                 name='title'
@@ -81,9 +82,7 @@ const NewMoment = ({
                 onChange={(e) => onChange(e)}
                 placeholder='Video Link'
               />
-              <button className='btn add-btn'>
-                {formType ? <span>+ Add</span> : <span>Edit</span>} Moment
-              </button>
+              <button className='btn add-btn'>Edit Moment</button>
             </form>
           </div>
         </section>
@@ -92,4 +91,4 @@ const NewMoment = ({
   );
 };
 
-export default NewMoment;
+export default EditForm;
