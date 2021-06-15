@@ -1,14 +1,19 @@
 .new-moment-body {
-  position: absolute;
+  position: fixed;
   background-color: #0000009e;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.lock {
+  overflow: hidden;
 }
 
 .new-moment-container {

@@ -11,6 +11,7 @@ const EditForm = ({
   const hideFormHandler = () => {
     if (editFormDisplay) {
       setEditFormDisplay(false);
+      document.body.style.overflow = 'unset';
     } else {
       setEditFormDisplay(true);
     }
@@ -37,8 +38,9 @@ const EditForm = ({
     if (title !== '' && description !== '') {
       for (let moment of moments) {
         if (capturedMoment.id === moment.id) {
-          setMoments([...moments, ({ capturedMoment } = moment)]);
+          setMoments([...moments]);
           setEditFormDisplay(false);
+          document.body.style.overflow = 'unset';
         }
       }
     }
@@ -52,7 +54,7 @@ const EditForm = ({
             <p className='close-form' onClick={hideFormHandler}>
               X
             </p>
-            <h1>EditMoment</h1>
+            <h1>Edit Moment</h1>
             <form onSubmit={editMoment} className='new-moment-form form'>
               <input
                 type='text'

@@ -7,11 +7,11 @@ const NewMoment = ({
   moments,
   setMoments,
   formType,
-  capturedMoment,
 }) => {
   const hideFormHandler = () => {
     if (formDisplay) {
       setFormDisplay(false);
+      document.body.style.overflow = 'unset';
     } else {
       setFormDisplay(true);
     }
@@ -40,6 +40,7 @@ const NewMoment = ({
       let id = Math.random();
       setMoments([...moments, { id, title, description, img, link }]);
       setFormDisplay(false);
+      document.body.style.overflow = 'unset';
     }
   };
 

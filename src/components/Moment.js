@@ -15,7 +15,7 @@ const Moment = ({ moment, moments, setMoments }) => {
     if (!editFormDisplay) {
       setCapturedMoment(moment);
       setEditFormDisplay(true);
-      console.log(moment);
+      document.body.style.overflow = 'hidden';
     } else {
       setEditFormDisplay(false);
     }

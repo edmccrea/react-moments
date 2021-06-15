@@ -13,6 +13,7 @@ function App() {
     if (!formDisplay) {
       setFormDisplay(true);
       setFormType(true);
+      document.body.style.overflow = 'hidden';
     } else {
       setFormDisplay(false);
       setFormType(false);
