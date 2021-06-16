@@ -36,13 +36,15 @@ const EditForm = ({
   const editMoment = (e) => {
     e.preventDefault();
     if (title !== '' && description !== '') {
-      for (let moment of moments) {
-        if (capturedMoment.id === moment.id) {
-          setMoments([...moments]);
-          setEditFormDisplay(false);
-          document.body.style.overflow = 'unset';
-        }
-      }
+      setMoments(
+        moments.map((o) =>
+          o.id === capturedMoment.id
+            ? { ...o, title, description, img, link }
+            : o
+        )
+      );
+      setEditFormDisplay(false);
+      document.body.style.overflow = 'unset';
     }
   };
 
