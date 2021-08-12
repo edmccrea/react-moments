@@ -50,3 +50,9 @@
 .add-btn {
   width: 50%;
 }
+
+@media (max-width: 800px) {
+  .add-btn {
+    width: 100%;
+  }
+}
